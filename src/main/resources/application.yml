@@ -1,0 +1,28 @@
+eureka:
+  ## 表示为Erureka客户端
+  client:
+    ## 单台server为服务器不需要注册到服务器上
+    register-with-eureka: true
+    ## 获取注册列表的信息  道理同上 基本两者参数是一样的
+    fetch-registry: true
+    service-url: # Eureka服务提供地址
+      defaultZone: http://node1:10097/eureka/
+spring:
+  cloud:
+    config:
+      server: #git仓库的配置
+        git:
+          uri: https://github.com/cxjwbj/config-test2 # 指定仓库url
+          search-paths: config # 当前包下所有文件
+          username: cxjwbj14@163.com # 账号
+          password: qq13673088981 # 密码
+          basedir: C:\Users\Admin\Desktop\gitBase #固定默认git路径缓存配置信息
+  application:
+    name: config-server
+#  security:
+#    user:
+#      name: user
+#      password: 123456
+
+server:
+  port: 7000
